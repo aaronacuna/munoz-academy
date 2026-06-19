@@ -1,0 +1,140 @@
+.section {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+/* ===================================================================
+   Left column — text
+   =================================================================== */
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #1a4a2e;
+  padding: 80px 48px;
+}
+
+.label {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #c9a84c;
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #f5f0e8;
+  margin: 0 0 24px;
+}
+
+.heading em {
+  font-style: italic;
+  color: #c9a84c;
+}
+
+.body {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(245, 240, 232, 0.7);
+  max-width: 500px;
+  margin: 0;
+}
+
+.quote {
+  border-left: 2px solid #c9a84c;
+  background: rgba(201, 168, 76, 0.07);
+  padding: 26px 30px;
+  margin: 32px 0 0;
+  max-width: 500px;
+}
+
+.quoteText {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #f5f0e8;
+  margin: 0 0 14px;
+}
+
+.citation {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #c9a84c;
+}
+
+/* ===================================================================
+   Right column — 2x2 number cards
+   =================================================================== */
+
+.right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background: #1e5c38;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(13, 40, 24, 0.5);
+  border: 1px solid rgba(201, 168, 76, 0.08);
+  padding: 40px 28px;
+}
+
+.number {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1;
+  color: #f5f0e8;
+  margin: 0;
+}
+
+.suffix {
+  font-size: 28px;
+  color: #c9a84c;
+}
+
+.cardLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.5);
+  margin-top: 7px;
+}
+
+/* ===================================================================
+   Responsive — stack below 768px
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    padding: 64px 32px;
+  }
+
+  .card {
+    padding: 32px 20px;
+  }
+}

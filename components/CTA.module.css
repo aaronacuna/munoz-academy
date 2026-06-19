@@ -1,0 +1,96 @@
+.section {
+  background: #2d7a4f;
+  padding: 84px 48px;
+  text-align: center;
+}
+
+.label {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: rgba(245, 240, 232, 0.55);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #f5f0e8;
+  max-width: 600px;
+  margin: 0 auto 18px;
+}
+
+.heading em {
+  font-style: italic;
+  color: #c9a84c;
+}
+
+.body {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 240, 232, 0.75);
+  max-width: 480px;
+  margin: 0 auto 36px;
+}
+
+/* ===================================================================
+   Buttons
+   =================================================================== */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.btnSolid,
+.btnOutline {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 13px 30px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btnSolid {
+  background: #f5f0e8;
+  color: #2d7a4f;
+  border: none;
+}
+
+.btnSolid:hover {
+  background: #ffffff;
+}
+
+.btnOutline {
+  background: transparent;
+  color: #f5f0e8;
+  border: 1px solid rgba(245, 240, 232, 0.5);
+}
+
+.btnOutline:hover {
+  background: rgba(245, 240, 232, 0.1);
+}
+
+/* ===================================================================
+   Responsive — stack buttons below 768px
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 32px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

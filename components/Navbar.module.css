@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 90px;
+  height: 150px;
   padding: 0 48px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .logo {
-  height: 75px;
+  height: 150px;
   width: auto;
 }
 
@@ -136,13 +136,23 @@
    =================================================================== */
 
 @media (max-width: 768px) {
-  .links,
-  .bar > .cta {
+  .links {
     display: none;
+  }
+
+  /* Keep the CTA visible on mobile, pushed to the right of the bar */
+  .cta {
+    margin-left: auto;
   }
 
   .hamburger {
     display: flex;
+    margin-left: 16px;
+  }
+
+  /* CTA now lives in the bar on mobile, so the dropdown copy is redundant */
+  .dropdownCta {
+    display: none;
   }
 
   .dropdown {

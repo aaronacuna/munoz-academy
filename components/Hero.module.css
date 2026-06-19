@@ -1,0 +1,210 @@
+.hero {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  min-height: 640px;
+  background: #1a4a2e;
+}
+
+/* ===================================================================
+   Left column — centered content
+   =================================================================== */
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 24px;
+  padding: 80px 64px;
+}
+
+.eyebrow {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #c9a84c;
+}
+
+.title {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #f5f0e8;
+  margin: 0;
+}
+
+.title em {
+  font-style: italic;
+  color: #c9a84c;
+}
+
+.subtitle {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(245, 240, 232, 0.7);
+}
+
+.body {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 240, 232, 0.78);
+  max-width: 400px;
+}
+
+/* ===================================================================
+   Buttons
+   =================================================================== */
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.btnPrimary,
+.btnOutline {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 15px 32px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btnPrimary {
+  background: #c9a84c;
+  color: #f5f0e8;
+  border: 1px solid #c9a84c;
+}
+
+.btnPrimary:hover {
+  background: #d8ba63;
+  border-color: #d8ba63;
+}
+
+.btnOutline {
+  background: transparent;
+  color: #f5f0e8;
+  border: 1px solid #f5f0e8;
+}
+
+.btnOutline:hover {
+  background: rgba(245, 240, 232, 0.1);
+}
+
+/* ===================================================================
+   Right column — decorative court + stat pills
+   =================================================================== */
+
+.right {
+  position: relative;
+  overflow: hidden;
+  background: #1e5c38;
+}
+
+.court {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 88%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0.15;
+}
+
+.stats {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 190px;
+  padding: 18px 24px;
+  background: rgba(13, 40, 24, 0.55);
+  border: 1px solid #c9a84c;
+}
+
+.pillNumber {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1;
+  color: #f5f0e8;
+}
+
+.pillLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #c9a84c;
+}
+
+/* ===================================================================
+   Responsive — below 768px
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .left {
+    padding: 64px 32px;
+  }
+
+  .title {
+    font-size: 44px;
+  }
+
+  .right {
+    height: 300px;
+  }
+
+  /* Stat pills become a horizontal row, centered, with smaller text */
+  .stats {
+    right: 24px;
+    left: 24px;
+    bottom: 24px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .pill {
+    min-width: 0;
+    flex: 1;
+    padding: 12px 14px;
+  }
+
+  .pillNumber {
+    font-size: 28px;
+  }
+
+  .pillLabel {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+}

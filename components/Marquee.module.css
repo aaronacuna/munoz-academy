@@ -1,0 +1,55 @@
+.marquee {
+  overflow: hidden;
+  background: #c9a84c;
+  padding: 14px 0;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+/* Translating by exactly one group's width (-50% of the two-group track)
+   means the second group lands precisely where the first started — no jump. */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1a4a2e;
+  white-space: nowrap;
+}
+
+.diamond {
+  margin: 0 1.5em;
+  color: #1a4a2e;
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

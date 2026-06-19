@@ -1,0 +1,152 @@
+.section {
+  background: #f5f0e8;
+  padding: 80px 48px;
+}
+
+/* ===================================================================
+   Section header (same pattern as Programs)
+   =================================================================== */
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.label {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #c9a84c;
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 400;
+  color: #0d2818;
+  margin: 0;
+}
+
+.heading em {
+  font-style: italic;
+  color: #2d7a4f;
+}
+
+.seeAll {
+  flex-shrink: 0;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #2d7a4f;
+  transition: opacity 0.2s ease;
+}
+
+.seeAll:hover {
+  opacity: 0.7;
+}
+
+/* ===================================================================
+   Coach grid
+   =================================================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: #ffffff;
+}
+
+/* Photo area with initials placeholder */
+.photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 210px;
+  overflow: hidden;
+}
+
+.initials {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 60px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.18);
+}
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #c9a84c;
+}
+
+/* Info area */
+.info {
+  padding: 22px 22px 26px;
+}
+
+.name {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: #0d2818;
+  margin: 0;
+}
+
+.role {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin: 0 0 10px;
+}
+
+.bio {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #4a6355;
+  margin: 0;
+}
+
+/* ===================================================================
+   Responsive
+   =================================================================== */
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: single column */
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 32px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
