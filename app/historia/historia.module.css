@@ -1,0 +1,191 @@
+/* ===================================================================
+   Historia page
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   Hero banner
+   ------------------------------------------------------------------- */
+
+.hero {
+  background: #1a4a2e;
+  padding: 80px 48px;
+}
+
+.heroLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #c9a84c;
+  margin-bottom: 16px;
+}
+
+.heroHeading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #f5f0e8;
+  max-width: 800px;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------
+   Main content — 60% text / 40% image
+   ------------------------------------------------------------------- */
+
+.content {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 56px;
+  align-items: start;
+  background: #faf7f2;
+  padding: 80px 48px;
+}
+
+.contentText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contentText p {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: #4a6355;
+  margin: 0;
+}
+
+.contentImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1e5c38;
+  min-height: 360px;
+  height: 100%;
+}
+
+.contentImage span {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(245, 240, 232, 0.65);
+}
+
+/* -------------------------------------------------------------------
+   Values / philosophy
+   ------------------------------------------------------------------- */
+
+.values {
+  background: #f5f0e8;
+  padding: 80px 48px;
+  text-align: center;
+}
+
+.valuesLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #c9a84c;
+  margin-bottom: 12px;
+}
+
+.valuesHeading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #0d2818;
+  margin: 0 0 48px;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.valueCard {
+  background: #ffffff;
+  padding: 32px;
+  text-align: left;
+  border-top: 2px solid transparent;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.valueCard:hover {
+  border-top-color: #c9a84c;
+  transform: translateY(-4px);
+}
+
+.valueNumber {
+  display: block;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1;
+  color: #c9a84c;
+  margin-bottom: 18px;
+}
+
+.valueTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #0d2818;
+  margin: 0 0 12px;
+}
+
+.valueDescription {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #4a6355;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------
+   Responsive — stack to single column below 768px
+   ------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 64px 32px;
+  }
+
+  .heroHeading {
+    font-size: 38px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 64px 32px;
+  }
+
+  .contentImage {
+    min-height: 280px;
+  }
+
+  .values {
+    padding: 64px 32px;
+  }
+
+  .valuesHeading {
+    font-size: 34px;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

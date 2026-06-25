@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 
 const links = [
@@ -17,8 +18,12 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   const close = () => setOpen(false);
+
+  const isActive = (href) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <nav className={styles.nav}>
@@ -44,7 +49,7 @@ export default function Navbar() {
             <li key={href}>
               <Link
                 href={href}
-                className={`${styles.link} ${label === "Inicio" ? styles.active : ""}`}
+                className={`${styles.link} ${isActive(href) ? styles.active : ""}`}
               >
                 {label}
               </Link>
@@ -79,7 +84,7 @@ export default function Navbar() {
             <li key={href}>
               <Link
                 href={href}
-                className={`${styles.dropdownLink} ${label === "Inicio" ? styles.active : ""}`}
+                className={`${styles.dropdownLink} ${isActive(href) ? styles.active : ""}`}
                 onClick={close}
               >
                 {label}

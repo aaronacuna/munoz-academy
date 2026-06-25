@@ -1,0 +1,262 @@
+/* ===================================================================
+   Profesores page
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   Hero banner
+   ------------------------------------------------------------------- */
+
+.hero {
+  background: #1a4a2e;
+  padding: 80px 48px;
+}
+
+.heroLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #c9a84c;
+  margin-bottom: 16px;
+}
+
+.heroHeading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #f5f0e8;
+  margin: 0;
+}
+
+.heroSubtitle {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.65);
+  margin-top: 16px;
+}
+
+/* -------------------------------------------------------------------
+   Coaches grid — larger cards than homepage
+   ------------------------------------------------------------------- */
+
+.coaches {
+  background: #faf7f2;
+  padding: 80px 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: #ffffff;
+}
+
+.photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 280px;
+  overflow: hidden;
+}
+
+.initials {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 60px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.18);
+}
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #c9a84c;
+}
+
+.info {
+  padding: 22px 22px 26px;
+}
+
+.name {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: #0d2818;
+  margin: 0;
+}
+
+.role {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin: 0 0 10px;
+}
+
+.bio {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #4a6355;
+  margin: 0;
+}
+
+.contactLink {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #2d7a4f;
+  transition: opacity 0.2s ease;
+}
+
+.contactLink:hover {
+  opacity: 0.7;
+}
+
+/* -------------------------------------------------------------------
+   Philosophy — text left / stats right
+   ------------------------------------------------------------------- */
+
+.philosophy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  background: #1a4a2e;
+  padding: 80px 48px;
+}
+
+.philosophyLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #c9a84c;
+  margin-bottom: 16px;
+}
+
+.philosophyHeading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #f5f0e8;
+  margin: 0 0 24px;
+}
+
+.philosophyHeading em {
+  font-style: italic;
+  color: #c9a84c;
+}
+
+.philosophyBody {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(245, 240, 232, 0.7);
+  margin: 0 0 18px;
+}
+
+.philosophyBody:last-child {
+  margin-bottom: 0;
+}
+
+/* 2x2 stat cards — same style as About section */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(30, 92, 56, 0.55);
+  border: 1px solid rgba(201, 168, 76, 0.08);
+  padding: 40px 28px;
+}
+
+.statNumber {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1;
+  color: #f5f0e8;
+  margin: 0;
+}
+
+.statSuffix {
+  font-size: 28px;
+  color: #c9a84c;
+}
+
+.statLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.5);
+  margin-top: 7px;
+}
+
+/* -------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------- */
+
+/* Tablet: 2-column coaches grid */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: single column */
+@media (max-width: 768px) {
+  .hero {
+    padding: 64px 32px;
+  }
+
+  .heroHeading {
+    font-size: 38px;
+  }
+
+  .coaches {
+    padding: 64px 32px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 64px 32px;
+  }
+
+  .philosophyHeading {
+    font-size: 34px;
+  }
+}

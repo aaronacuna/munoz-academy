@@ -1,0 +1,167 @@
+/* ===================================================================
+   Programas page
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   Hero banner
+   ------------------------------------------------------------------- */
+
+.hero {
+  background: #1a4a2e;
+  padding: 80px 48px;
+}
+
+.heroLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #c9a84c;
+  margin-bottom: 16px;
+}
+
+.heroHeading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #f5f0e8;
+  margin: 0;
+}
+
+.heroSubtitle {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.65);
+  margin-top: 16px;
+}
+
+/* -------------------------------------------------------------------
+   Program detail rows — alternating layout
+   ------------------------------------------------------------------- */
+
+.programs {
+  background: #faf7f2;
+  padding: 80px 48px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  min-height: 300px;
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(13, 40, 24, 0.1);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+/* Alternate: even rows put the icon on the right */
+.row:nth-child(even) .iconBox {
+  order: 2;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 204px;
+  background: #f0f5f2;
+  border-radius: 8px;
+}
+
+.icon {
+  width: 96px;
+  height: 96px;
+  /* Recolor the black source icons to green */
+  filter: invert(39%) sepia(40%) saturate(600%) hue-rotate(100deg)
+    brightness(0.85);
+}
+
+.programLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #c9a84c;
+  margin-bottom: 12px;
+}
+
+.programTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #0d2818;
+  margin: 0 0 20px;
+}
+
+.programBody {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #4a6355;
+  margin: 0 0 16px;
+}
+
+.programLink {
+  display: inline-block;
+  margin-top: 4px;
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #2d7a4f;
+  transition: opacity 0.2s ease;
+}
+
+.programLink:hover {
+  opacity: 0.7;
+}
+
+/* -------------------------------------------------------------------
+   Responsive — stack to single column below 768px
+   ------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 64px 32px;
+  }
+
+  .heroHeading {
+    font-size: 38px;
+  }
+
+  .programs {
+    padding: 64px 32px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 0;
+    min-height: 0;
+  }
+
+  /* Keep the icon on top for every row when stacked */
+  .row:nth-child(even) .iconBox {
+    order: 0;
+  }
+
+  .iconBox {
+    min-height: 220px;
+  }
+
+  .programTitle {
+    font-size: 30px;
+  }
+}

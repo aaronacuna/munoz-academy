@@ -1,0 +1,207 @@
+/* ===================================================================
+   Recursos page
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   Hero banner
+   ------------------------------------------------------------------- */
+
+.hero {
+  background: #1a4a2e;
+  padding: 80px 48px;
+}
+
+.heroLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #c9a84c;
+  margin-bottom: 16px;
+}
+
+.heroHeading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #f5f0e8;
+  margin: 0;
+}
+
+.heroSubtitle {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.65);
+  margin-top: 16px;
+}
+
+/* -------------------------------------------------------------------
+   Shared section label + heading
+   ------------------------------------------------------------------- */
+
+.sectionLabel {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #c9a84c;
+  margin-bottom: 12px;
+}
+
+.sectionHeading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #0d2818;
+  margin: 0 0 40px;
+}
+
+/* -------------------------------------------------------------------
+   Photo gallery — 3 / 2 / 1 columns
+   ------------------------------------------------------------------- */
+
+.gallery {
+  background: #faf7f2;
+  padding: 80px 48px;
+}
+
+.photoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.photoCard {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.photo {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photoCard:hover .photo {
+  transform: scale(1.02);
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  background: linear-gradient(
+    to top,
+    rgba(13, 40, 24, 0.75),
+    rgba(13, 40, 24, 0) 55%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photoCard:hover .photoOverlay {
+  opacity: 1;
+}
+
+.photoCategoria {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #c9a84c;
+}
+
+/* -------------------------------------------------------------------
+   Video gallery — 2 / 1 columns
+   ------------------------------------------------------------------- */
+
+.videos {
+  background: #f5f0e8;
+  padding: 80px 48px;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.videoCard {
+  background: #ffffff;
+}
+
+.videoFrame {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+.videoInfo {
+  padding: 20px;
+}
+
+.videoTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0d2818;
+  margin: 0 0 8px;
+}
+
+.videoDesc {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #4a6355;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------- */
+
+/* Tablet: 2-column photo grid */
+@media (max-width: 1024px) {
+  .photoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: single column */
+@media (max-width: 768px) {
+  .hero {
+    padding: 64px 32px;
+  }
+
+  .heroHeading {
+    font-size: 38px;
+  }
+
+  .gallery,
+  .videos {
+    padding: 64px 32px;
+  }
+
+  .sectionHeading {
+    font-size: 34px;
+  }
+
+  .photoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .videoGrid {
+    grid-template-columns: 1fr;
+  }
+}
