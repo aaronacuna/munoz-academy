@@ -1,5 +1,7 @@
-import Link from "next/link";
 import styles from "./CTA.module.css";
+
+const WHATSAPP_PROGRAMS =
+  "https://wa.me/50683166300?text=Hola%2C%20me%20gustaría%20conocer%20más%20sobre%20los%20programas%20de%20Muñoz%20Academy";
 
 export default function CTA() {
   return (
@@ -13,12 +15,22 @@ export default function CTA() {
         te asesoraremos sobre el programa más adecuado.
       </p>
       <div className={styles.buttons}>
-        <Link href="/programas" className={styles.btnSolid}>
+        <a
+          href={WHATSAPP_PROGRAMS}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.btnSolid}
+        >
           Ver Programas
-        </Link>
-        <Link href="/contacto" className={styles.btnOutline}>
+        </a>
+        <a
+          href={WHATSAPP_PROGRAMS}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.btnOutline}
+        >
           Contactar Ahora
-        </Link>
+        </a>
       </div>
     </section>
   );

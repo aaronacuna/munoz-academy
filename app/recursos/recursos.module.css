@@ -121,6 +121,15 @@
   color: #c9a84c;
 }
 
+/* Empty-state message shown until content is added in Sanity */
+.empty {
+  font-family: var(--font-jost), sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #4a6355;
+  margin: 0;
+}
+
 /* -------------------------------------------------------------------
    Video gallery — 2 / 1 columns
    ------------------------------------------------------------------- */

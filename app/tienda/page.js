@@ -31,9 +31,14 @@ export default function TiendaPage() {
 
       <span className={styles.divider} />
 
-      <button type="button" className={styles.notify}>
+      <a
+        href="https://wa.me/50683166300?text=Hola%2C%20me%20gustaría%20saber%20cuándo%20estará%20lista%20la%20tienda"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.notify}
+      >
         Avísame cuando esté lista →
-      </button>
+      </a>
 
       <Link href="/" className={styles.back}>
         ← Volver al inicio

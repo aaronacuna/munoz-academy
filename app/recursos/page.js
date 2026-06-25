@@ -1,7 +1,7 @@
-import Image from "next/image";
 import CTA from "../../components/CTA";
 import Footer from "../../components/Footer";
-import { fotos, videos } from "../../data/recursos";
+import { getRecursos } from "../../lib/sanity";
+import { urlFor } from "../../lib/sanityImage";
 import styles from "./recursos.module.css";
 
 export const metadata = {
@@ -9,7 +9,11 @@ export const metadata = {
   description: "Galería de fotos y videos de la Academia Muñoz.",
 };
 
-export default function RecursosPage() {
+export default async function RecursosPage() {
+  const recursos = await getRecursos();
+  const fotos = recursos.filter((r) => r.type === "photo");
+  const videos = recursos.filter((r) => r.type === "video");
+
   return (
     <main>
       {/* Hero banner */}
@@ -26,22 +30,32 @@ export default function RecursosPage() {
         <p className={styles.sectionLabel}>Galería</p>
         <h2 className={styles.sectionHeading}>Galería de Fotos</h2>
 
-        <div className={styles.photoGrid}>
-          {fotos.map(({ id, src, alt, categoria }) => (
-            <figure key={id} className={styles.photoCard}>
-              <Image
-                className={styles.photo}
-                src={src}
-                alt={alt}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-              <figcaption className={styles.photoOverlay}>
-                <span className={styles.photoCategoria}>{categoria}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        {fotos.length === 0 ? (
+          <p className={styles.empty}>Las fotos aparecerán aquí pronto</p>
+        ) : (
+          <div className={styles.photoGrid}>
+            {fotos.map((foto) => (
+              <figure key={foto._id} className={styles.photoCard}>
+                {foto.photo && (
+                  <img
+                    className={styles.photo}
+                    src={urlFor(foto.photo).width(600).url()}
+                    alt={foto.title || ""}
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                )}
+                <figcaption className={styles.photoOverlay}>
+                  <span className={styles.photoCategoria}>{foto.categoria}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Video gallery */}
@@ -49,26 +63,32 @@ export default function RecursosPage() {
         <p className={styles.sectionLabel}>Multimedia</p>
         <h2 className={styles.sectionHeading}>Videos</h2>
 
-        <div className={styles.videoGrid}>
-          {videos.map(({ id, youtubeId, titulo, descripcion }) => (
-            <article key={id} className={styles.videoCard}>
-              <iframe
-                className={styles.videoFrame}
-                width="100%"
-                height="250"
-                src={`https://www.youtube.com/embed/${youtubeId}`}
-                title={titulo}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-              <div className={styles.videoInfo}>
-                <h3 className={styles.videoTitle}>{titulo}</h3>
-                <p className={styles.videoDesc}>{descripcion}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+        {videos.length === 0 ? (
+          <p className={styles.empty}>Los videos aparecerán aquí pronto</p>
+        ) : (
+          <div className={styles.videoGrid}>
+            {videos.map((video) => (
+              <article key={video._id} className={styles.videoCard}>
+                <iframe
+                  className={styles.videoFrame}
+                  width="100%"
+                  height="250"
+                  src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                  title={video.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+                <div className={styles.videoInfo}>
+                  <h3 className={styles.videoTitle}>{video.title}</h3>
+                  {video.categoria && (
+                    <p className={styles.videoDesc}>{video.categoria}</p>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
 
       <CTA />

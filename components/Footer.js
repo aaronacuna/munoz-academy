@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getSiteSettings } from "../lib/sanity";
 import styles from "./Footer.module.css";
 
 const navegacion = [
@@ -15,14 +16,28 @@ const mas = [
   { label: "Inscripción", href: "/contacto" },
 ];
 
-const contacto = [
-  { label: "info@munozacademy.com", href: "mailto:info@munozacademy.com" },
-  { label: "+506 0000 0000", href: "tel:+50600000000" },
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "Facebook", href: "https://facebook.com" },
-];
+// Defaults used until siteSettings is populated in Sanity.
+const DEFAULTS = {
+  email: "info@munozacademy.com",
+  phone: "+506 0000 0000",
+  instagramUrl: "https://instagram.com",
+  facebookUrl: "https://facebook.com",
+};
 
-export default function Footer() {
+export default async function Footer() {
+  const settings = (await getSiteSettings()) || {};
+  const email = settings.email || DEFAULTS.email;
+  const phone = settings.phone || DEFAULTS.phone;
+  const instagramUrl = settings.instagramUrl || DEFAULTS.instagramUrl;
+  const facebookUrl = settings.facebookUrl || DEFAULTS.facebookUrl;
+
+  const contacto = [
+    { label: email, href: `mailto:${email}` },
+    { label: phone, href: `tel:${phone.replace(/\s+/g, "")}` },
+    { label: "Instagram", href: instagramUrl },
+    { label: "Facebook", href: facebookUrl },
+  ];
+
   return (
     <footer className={styles.footer}>
       <div className={styles.brand}>

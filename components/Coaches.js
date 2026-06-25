@@ -1,34 +1,34 @@
 import Link from "next/link";
+import { getCoaches } from "../lib/sanity";
+import { urlFor } from "../lib/sanityImage";
 import styles from "./Coaches.module.css";
 
 const BIO =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac orci dignissim, interdum velit vel consequat mauris.";
 
-const coaches = [
-  {
-    name: "Mario Muñoz",
-    role: "Director · Head Coach",
-    initials: "MM",
-    photoBg: "#1a4a2e",
-    bio: BIO,
-  },
-  {
-    name: "Eduardo Muñoz",
-    role: "Profesor · Tennis Coach",
-    initials: "EM",
-    photoBg: "#2d7a4f",
-    bio: BIO,
-  },
-  {
-    name: "Aarón Acuña",
-    role: "Profesor · Tennis Coach",
-    initials: "AÑ",
-    photoBg: "#1e3a2f",
-    bio: BIO,
-  },
+// Used until coaches are added in Sanity, so the section never renders empty.
+const fallbackCoaches = [
+  { name: "Mario Muñoz", role: "Director · Head Coach", bio: BIO },
+  { name: "Eduardo Muñoz", role: "Profesor · Tennis Coach", bio: BIO },
+  { name: "Aarón Acuña", role: "Profesor · Tennis Coach", bio: BIO },
 ];
 
-export default function Coaches() {
+const photoBgs = ["#1a4a2e", "#2d7a4f", "#1e3a2f"];
+
+function initialsFrom(name = "") {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+}
+
+export default async function Coaches() {
+  const data = await getCoaches();
+  const coaches = data && data.length ? data : fallbackCoaches;
+
   return (
     <section className={styles.section}>
       <header className={styles.header}>
@@ -44,21 +44,37 @@ export default function Coaches() {
       </header>
 
       <div className={styles.grid}>
-        {coaches.map(({ name, role, initials, photoBg, bio }) => (
-          <article key={name} className={styles.card}>
-            <div className={styles.photo} style={{ background: photoBg }}>
-              <span className={styles.initials} aria-hidden="true">
-                {initials}
-              </span>
-              <span className={styles.bar} />
-            </div>
-            <div className={styles.info}>
-              <h3 className={styles.name}>{name}</h3>
-              <p className={styles.role}>{role}</p>
-              <p className={styles.bio}>{bio}</p>
-            </div>
-          </article>
-        ))}
+        {coaches.map((coach, i) => {
+          const photoUrl = coach.photo
+            ? urlFor(coach.photo).width(400).height(280).url()
+            : null;
+          const bio = coach.bio || BIO;
+          const photoBg = photoBgs[i % photoBgs.length];
+
+          return (
+            <article key={coach._id || coach.name} className={styles.card}>
+              <div className={styles.photo} style={{ background: photoBg }}>
+                {photoUrl ? (
+                  <img
+                    src={photoUrl}
+                    alt={coach.name}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                ) : (
+                  <span className={styles.initials} aria-hidden="true">
+                    {initialsFrom(coach.name)}
+                  </span>
+                )}
+                <span className={styles.bar} />
+              </div>
+              <div className={styles.info}>
+                <h3 className={styles.name}>{coach.name}</h3>
+                <p className={styles.role}>{coach.role}</p>
+                <p className={styles.bio}>{bio}</p>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

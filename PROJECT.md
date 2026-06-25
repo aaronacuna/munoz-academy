@@ -217,12 +217,12 @@ Content types to build:
 - [x] Next.js project scaffolded
 - [x] Global styles and CSS variables
 - [x] Layout with LanguageBar + Navbar (needs responsive tweaks)
-- [ ] Hero component
-- [ ] Marquee component
-- [ ] Programs component
-- [ ] About component
-- [ ] Coaches component
-- [ ] CTA component
-- [ ] Footer component
-- [ ] Sanity CMS integration
-- [ ] Vercel deployment
+- [x] Hero component
+- [x] Marquee component
+- [x] Programs component
+- [x] About component
+- [x] Coaches component
+- [x] CTA component
+- [x] Footer component
+- [x] Sanity CMS integration
+- [x] Vercel deployment

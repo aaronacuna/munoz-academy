@@ -6,6 +6,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 
+const WHATSAPP_INSCRIBETE =
+  "https://wa.me/50683166300?text=Hola%2C%20me%20gustaría%20inscribirme%20en%20Muñoz%20Academy";
+
 const links = [
   { label: "Inicio", href: "/" },
   { label: "Historia", href: "/historia" },
@@ -57,9 +60,14 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <Link href="/contacto" className={styles.cta}>
+        <a
+          href={WHATSAPP_INSCRIBETE}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.cta}
+        >
           Inscríbete
-        </Link>
+        </a>
 
         <button
           type="button"
@@ -92,9 +100,15 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <Link href="/contacto" className={styles.dropdownCta} onClick={close}>
+            <a
+              href={WHATSAPP_INSCRIBETE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.dropdownCta}
+              onClick={close}
+            >
               Inscríbete
-            </Link>
+            </a>
           </li>
         </ul>
       )}

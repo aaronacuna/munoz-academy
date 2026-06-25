@@ -97,9 +97,15 @@ export default function ContactoPage() {
               />
             </div>
 
-            <button type="submit" className={styles.submit}>
+            <a
+              href="https://wa.me/50683166300?text=Hola%2C%20me%20gustaría%20obtener%20más%20información%20sobre%20Muñoz%20Academy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.submit}
+              style={{ display: "block", textAlign: "center" }}
+            >
               Enviar Mensaje
-            </button>
+            </a>
           </form>
         </div>
 
